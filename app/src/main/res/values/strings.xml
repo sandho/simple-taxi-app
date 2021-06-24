@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">SimpleTaxiApp</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="taxi_app">Taxi App</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_mobile_no">Enter Your Mobile No</string>
+    <string name="enter_destination">Enter Destination</string>
+    <string name="_1_2km">1.2km</string>
+    <string name="driver">DRIVER</string>
+    <string name="select_date_amp_time"><![CDATA[Select Date & Time]]></string>
+    <string name="trip_date">Trip Date</string>
+    <string name="trip_time">Trip Time</string>
+    <string name="choose_payment_method">Choose Payment Method</string>
+    <string name="pay_by_credit_card">Pay by Credit Card</string>
+    <string name="pay_by_cash">Pay by Cash</string>
+    <string name="submit">submit</string>
+    <string name="book_now">Book Now</string>
+    <string name="booking_details">Booking Details</string>
+    <string name="trip_summary">TRIP SUMMARY</string>
+    <string name="booked_on">booked on</string>
+    <string name="trip_on">Trip On</string>
+    <string name="destination">Destination</string>
+    <string name="driver_drive1">Driver - Drive1</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="card">card</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="close">Close</string>
+</resources>
