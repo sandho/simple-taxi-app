@@ -136,7 +136,6 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -204,9 +203,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2"
+            android:weightSum="4"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:visibility="gone"
             >
 
             <LinearLayout
@@ -258,7 +258,79 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/paytm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:padding="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_card"
+                    app:tint="@android:color/holo_blue_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_by_credit_card"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/othergateway"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:padding="10dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_cash"
+                    app:tint="@android:color/holo_green_dark"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_by_cash"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
+
+        <com.skydoves.powerspinner.PowerSpinnerView
+            android:id="@+id/choosePaymentMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            android:gravity="center"
+            android:hint="Choose Payment Method"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="14.5sp"
+            app:spinner_arrow_gravity="end"
+            app:spinner_arrow_padding="8dp"
+            app:spinner_divider_color="@color/white"
+            app:spinner_divider_show="true"
+            app:spinner_divider_size="0.4dp"
+            app:spinner_item_array="@array/payment_methods"
+            app:spinner_popup_animation="dropdown"
+            app:spinner_popup_background="@color/purple_200"
+            app:spinner_popup_elevation="14dp"
+            android:layout_margin="5dp"
+            />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/submitButton"

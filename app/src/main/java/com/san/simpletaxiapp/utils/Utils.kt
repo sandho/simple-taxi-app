@@ -37,9 +37,9 @@ class Utils {
 
         fun listOfDriversData() : ArrayList<ListOfDrivers> {
             val driver: ArrayList<ListOfDrivers> = ArrayList()
-            driver.add(ListOfDrivers("Cherry Hall", 13.068500, 80.234938))
-            driver.add(ListOfDrivers("Audrey Robinson", 13.062306, 80.231172))
-            driver.add(ListOfDrivers("Wilson Alexander", 13.071086, 80.230709))
+            driver.add(ListOfDrivers("Cherry Hall", 11.023945,77.0018713))
+            driver.add(ListOfDrivers("Audrey Robinson", 8.037244,80.0360853))
+            driver.add(ListOfDrivers("Wilson Alexander", 8.038965,80.0362893))
 
             return driver
         }

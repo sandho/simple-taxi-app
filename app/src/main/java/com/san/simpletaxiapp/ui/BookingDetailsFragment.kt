@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.san.simpletaxiapp.R
+import com.san.simpletaxiapp.databinding.FragmentBookingDetailsBinding
 import com.san.simpletaxiapp.utils.CARD
 import com.san.simpletaxiapp.utils.CASH
 import com.san.simpletaxiapp.utils.CASH_CAPS
@@ -17,7 +18,7 @@ class BookingDetailsFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = inflater.inflate(R.layout.fragment_booking_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_booking_details, container, false)
 
         val bundle = this.arguments
         var paymentMethod = bundle?.getString("payment_method")
@@ -29,13 +30,8 @@ class BookingDetailsFragment : BottomSheetDialogFragment() {
         view.journy_date.text = "Trip Date Time - "+bundle?.getString("trip_date_time")
         view.driver_name.text = "Driver Name - "+bundle?.getString("driver_name")
 
-        if(paymentMethod == CASH_CAPS) {
-            view.payment_on.text = CASH
-            view.payment_image.setImageResource(R.drawable.ic_cash)
-        } else {
-            view.payment_on.text = CARD
-            view.payment_image.setImageResource(R.drawable.ic_card)
-        }
+        view.payment_on.text = paymentMethod
+        view.payment_image.setImageResource(R.drawable.ic_cash)
 
         view.close.setOnClickListener {
             dismiss()

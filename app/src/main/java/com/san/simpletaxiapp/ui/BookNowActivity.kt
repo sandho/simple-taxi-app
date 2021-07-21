@@ -1,18 +1,18 @@
 package com.san.simpletaxiapp.ui
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
-import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import androidx.annotation.Nullable
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.san.simpletaxiapp.R
 import com.san.simpletaxiapp.databinding.ActivityBookNowBinding
-import com.san.simpletaxiapp.model.NearByDrivers
-import com.san.simpletaxiapp.utils.Utils
 import com.san.simpletaxiapp.utils.showToast
+import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
+import kotlinx.android.synthetic.main.activity_book_now.*
+import kotlinx.android.synthetic.main.dialog_picker.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -45,7 +45,7 @@ class BookNowActivity : AppCompatActivity() {
         binding.distanceTxt.text = "$formattedDistanceValue KM"
         binding.driverName.text = driver
 
-        binding.chooseTripTime.setOnClickListener {
+        /*binding.chooseTripTime.setOnClickListener {
             var calendar = Calendar.getInstance()
             var hour = calendar.get(Calendar.HOUR_OF_DAY)
             var minute = calendar.get(Calendar.MINUTE)
@@ -69,7 +69,42 @@ class BookNowActivity : AppCompatActivity() {
             }, hour, minute, false)
 
             timePickerDialog.show()
+        }*/
+
+        binding.chooseTripTime.setOnClickListener {
+            val dialog = AlertDialog.Builder(this)
+                .setView(R.layout.dialog_picker)
+                .setPositiveButton(android.R.string.yes, null)
+                .show()
+            val picker = dialog.picker
+            picker.setTypeface(Typeface.DEFAULT_BOLD)
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+
+                var amPm = "PM"
+
+                if(picker.hours <= 12) {
+                    amPm = "AM"
+                }
+
+                var hourr = picker.hours
+
+                if(hourr > 12) {
+                    hourr -= 12
+                }
+
+                tripTime = "${hourr}:${picker.minutes} $amPm"
+                binding.time.text = tripTime
+
+                dialog.dismiss()
+            }
         }
+
+        binding.choosePaymentMethod.setOnSpinnerItemSelectedListener(OnSpinnerItemSelectedListener<String?> {
+                oldIndex, oldItem, newIndex, newItem ->
+            if (newItem != null) {
+                paymentType = newItem
+            }
+        })
 
         binding.chooseTripDate.setOnClickListener {
             val c = Calendar.getInstance()
